@@ -1,27 +1,44 @@
 <html>
     <head>
-        <title>Night Out Planner</title>
+        <title>Bootstrap Showcase</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
            <link rel='stylesheet' type='text/css'
-            href='/stylesheets/bootstrap.min.css'>
+            href='/stylesheets/bootstrap.css'>
         <link rel='stylesheet' type='text/css'
             href='/stylesheets/app.css'>
+           
              <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+             <script src="js/bootstrap.min.js" ></script>
   
     </head>
     <body>
+        <div class='container'>
     <div class='navbar navbar-inverse'>
         <div class='container-fluid'>
             <div class='navbar-header'>
-            <buton type='button' class='navbar-toggle' data-toggle='collapse' data-target="#navcontent">
+            <buton type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target="#mynavbar-content">
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </buton>
             <a class='navbar-brand' href='#'>My Site</a>
         </div>
-        <div class='collapse navbar-collapse' id='#navcontent'>
+        <div class='collapse navbar-collapse' id='mynavbar-content'>
             <ul class='nav navbar-nav'>
-                <li class='active'><a href='#'>Home</a></li>
+                <li class='active'><a href='/'>Home</a></li>
+                <li class='dropdown'>
+                    <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Bootstrap Samples<b class='caret'></b></a>
+                    <ul class='dropdown-menu'>
+                         <li><a href='/grid'>Grid System</a></li>
+                         <li><a href='/alertmodal'>Alerts and Modals</a></li>
+                         <li><a href='/collapse'>Collapsalbe Content</a></li>
+                         <li><a href='/forms'>Forms</a></li>
+                         <li><a href='/tabs'>Tabs</a></li>
+                         <li class='divider'></li>
+                         <li><a href='/toggles'>Toggles Buttons</a></li>
+                     </ul>
+                 
+                 </li>
                 <li><a href='#'>Pricing</a></li>
                 <li><a href='#'>Contact</a></li>
                 <li><a href='#'>Feedback</a></li>
@@ -29,3 +46,4 @@
         </div>
         </div>
     </div>
+</div>

@@ -3,8 +3,9 @@ var mongoose=require('mongoose'),
     express=require('express'),
     app=express();
     
-mongoose.connect("mongodb://localhost/data");
+//mongoose.connect("mongodb://localhost/data");
 
+ 
 //QUANDL API KEY: wD2kaqRh4j7LCzf3bJJL
 //Sample call: https://www.quandl.com/api/v3/datasets/WIKI/FB.json?api_key=wD2kaqRh4j7LCzf3bJJL
 

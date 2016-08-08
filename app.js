@@ -3,7 +3,11 @@ var mongoose=require('mongoose'),
     express=require('express'),
     app=express();
 
-mongoose.connect("mongodb://localhost/data");
+
+
+var url = process.env.DBURL || "mongodb://localhost/data";
+mongoose.connect(url);
+//mongodb://jjmuggs:jakeman@ds145405.mlab.com:45405/stockpicker
 
 var StockSchema = new mongoose.Schema({
   symbol: String,

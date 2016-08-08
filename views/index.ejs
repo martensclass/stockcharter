@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html ng-app='ngapp'>
     <head>
         <title>Stockcharter 1.0</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,55 +8,53 @@
         <link rel='stylesheet' type='text/css' href='/stylesheets/app.css'>
            
              <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-             <script src="js/bootstrap.min.js" ></script>
-             <script src="js/highcharts//highcharts.js"></script>
-             <script>
-             $(startup);
-              function startup(){
-                 $('#chartspot').highcharts({
-                   chart: {
-                    type: 'bar'
-                   },
-                  title: {
-                      text: 'Fruit Consumption'
-                  },
-                  xAxis: {
-                      categories: ['Apples', 'Bananas', 'Oranges']
-                  },
-                  yAxis: {
-                      title: {
-                          text: 'Fruit eaten'
-                      }
-                  },
-                  series: [
-                   {
-                      name: 'Jane',
-                      data: [1, 2, 4]
-                  }, 
-                  {
-                      name: 'John',
-                      data: [5, 7, 3]
-                  }]
-              });
-            } //end startup function
-              
-             </script> 
-  
+             <script src="/js/bootstrap.min.js" ></script>
+             <script src="/js/highcharts/highcharts.js"></script>
+              <script src="/js/socket.io.js"></script>
+    
+    <script>
+        $(startup);
+        
+        function startup(){
+            (function(H) {
+                H.seriesTypes.line.prototype.requireSorting = false;
+                })(Highcharts)
+        }
+    </script>
     </head>
+    
     <body>
  
- <div class='container'>
-
-      <div class="jumbotron">
-          <h1>Stockcharter</h1><hr>
-          <p>Welcome to my app.</p>
-      </div>
-
-   <div id='chartspot'>
+ <div class='container' ng-controller='main'>
+<div class='page-header'>
+ <h1>Stockcharter</h1>
+</div>
+<div class='row' >
+   <div class='col col-md-12' id='chartspot'>
  
    </div>
-
+</div>
+<div class='row'>   
+   
+    <div class='col col-md-4 col-md-offset-4'>
+       <strong>Add Symbol:</strong>&nbsp;&nbsp; 
+    <input type='text' ng-style='boxStyle' id='txtsymbol' name='txtsymbol' ng-model='sym' placeholder='Stock Symbol'>&nbsp;<button ng-click="addStock(sym)" class='btn btn-success btn-sm'>Add</button>
+   <hr>
+   </div>
+   </div>
+<div class='row'>
+   <div class='col col-md-3' ng-repeat='stock in stocks'>
+    
+      <div class='well'>
+        <h4 style="margin: -5px;padding: 0px">{{stock.symbol}}<button class='btn btn-xs btn-danger pull-right' ng-click="removeStock($index)">x</button></h4>
+       <hr/><p style='padding:0px;margin-top:-10px;margin-bottom: -10px;font-size: .8em'> {{stock.name}}</p>
+      </div>
+    
+  </div>
+  </div>
 </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="/js/ngapp.js"></script>
  </body>
 </html>
